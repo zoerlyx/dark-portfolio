@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Syne:wght@400..800&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #050507;
+    --bg-surface: #0a0a0f;
+    --text-primary: #f5f5f7;
+    --text-muted: #8e8e99;
+    --accent-purple: #9d4edd;
+    --accent-glow: rgba(157, 78, 221, 0.15);
+  }
+
+  html {
+    background-color: #050507;
+    color: #f5f5f7;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #050507;
+    color: #f5f5f7;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  ::selection {
+    background-color: rgba(168, 85, 247, 0.3);
+    color: #ffffff;
+  }
+}
+
+/* Penambahan fallback font geometris tebal agar mirip Syne jika koneksi lambat */
+.font-display {
+  font-family: 'Syne', 'Trebuchet MS', 'Arial Black', Impact, sans-serif;
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Editorial typography clamps */
+.hero-editorial-title {
+  font-size: clamp(2.25rem, 8vw, 11rem); /* Aman untuk layar HP sempit */
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  word-break: break-word; /* Mencegah kata panjang melebihi layar */
+}
+
+.section-editorial-title {
+  font-size: clamp(2.25rem, 5vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+/* Subtle editorial film grain overlay */
+.editorial-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Ambient purple atmospheric drift animation */
+@keyframes ambientDriftA {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(25px, -18px) scale(1.06);
+  }
+}
+
+@keyframes ambientDriftB {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-20px, 25px) scale(0.95);
+  }
+}
+
+.animate-ambient-a {
+  animation: ambientDriftA 24s ease-in-out infinite alternate;
+}
+
+.animate-ambient-b {
+  animation: ambientDriftB 30s ease-in-out infinite alternate;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050507;
+}
+::-webkit-scrollbar-thumb {
+  background: #23232b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b3b47;
+}
+
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+@media (pointer: fine) and (hover: hover) {
+  body, a, button {
+    cursor: none !important;
+  }
+}
+
+/* Layer Utama: Neon Flicker & Subtle Text Glow */
+@keyframes static-electric-glitch {
+  0% {
+    opacity: 0;
+    text-shadow: -3px 0 #00f0ff, 3px 0 #ff0055, 0 0 15px rgba(168, 85, 247, 0.8);
+  }
+  10% {
+    opacity: 0.2;
+    text-shadow: none;
+  }
+  20% {
+    opacity: 1;
+    text-shadow: -2px 0 #00f0ff, 2px 0 #ff0055, 0 0 20px rgba(168, 85, 247, 0.9);
+  }
+  30% {
+    opacity: 0.3;
+    text-shadow: none;
+  }
+  40%, 80% {
+    opacity: 0.95;
+    text-shadow: -1px 0 rgba(0, 240, 255, 0.5), 1px 0 rgba(255, 0, 85, 0.5), 0 0 12px rgba(168, 85, 247, 0.6);
+  }
+  85% {
+    opacity: 0.2;
+    text-shadow: 3px 0 #ff0055;
+  }
+  90% {
+    opacity: 0.9;
+    text-shadow: -3px 0 #00f0ff, 0 0 18px rgba(168, 85, 247, 0.8);
+  }
+  95% {
+    opacity: 0.1;
+    text-shadow: none;
+  }
+  100% {
+    opacity: 0;
+    text-shadow: none;
+  }
+}
+
+/* Layer Glitch Overlay: Slicing & RGB Offset */
+@keyframes static-pixel-burst {
+  0%, 100% {
+    opacity: 0;
+    transform: translate(0, 0);
+    clip-path: inset(0 0 0 0);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-3px, 1px);
+    clip-path: inset(20% 0 60% 0);
+  }
+  15% {
+    opacity: 0.8;
+    transform: translate(4px, -2px);
+    clip-path: inset(70% 0 5% 0);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(0, 0);
+    clip-path: inset(0 0 0 0);
+  }
+  45% {
+    opacity: 0.9;
+    transform: translate(-4px, 0);
+    clip-path: inset(40% 0 40% 0);
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+    transform: translate(3px, 2px);
+    clip-path: inset(10% 0 75% 0);
+  }
+  80% {
+    opacity: 0;
+  }
+}
+
+.animate-static-glitch {
+  animation: static-electric-glitch 3s ease-in-out infinite;
+}
+
+.animate-static-pixel {
+  animation: static-pixel-burst 2.5s steps(1) infinite;
+}
+
+/* Update file globals.css / index.css Anda */
+
+@keyframes marqueeLeft {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee-left {
+  animation: marqueeLeft 25s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marqueeRight 25s linear infinite;
+}
+
+/* Hentikan SEMUA anak elemen marquee saat kontainer induknya (group) di-hover */
+.group:hover .animate-marquee-left,
+.group:hover .animate-marquee-right {
+  animation-play-state: paused;
+}
+
+/* Corrector Opacity & Glitch Variations */
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.7; /* Disesuaikan dari 70 menjadi 0.7 */
+  }
+  50% {
+    transform: scale(1.2) translate(10px, -10px);
+    opacity: 0.25;
+  }
+}
+
+/* Glitch Horisontal - Set A */
+@keyframes glitchLineH1 {
+  0%, 100% { top: 10%; opacity: 0.2; }
+  15% { top: 45%; opacity: 0.9; }
+  30% { top: 80%; opacity: 0; }
+  50% { top: 25%; opacity: 0.7; }
+  70% { top: 65%; opacity: 0.1; }
+  85% { top: 90%; opacity: 0.85; }
+}
+
+/* Glitch Horisontal - Set B (Cakupan area tengah & bawah) */
+@keyframes glitchLineH2 {
+  0%, 100% { top: 75%; opacity: 0; }
+  20% { top: 15%; opacity: 0.8; }
+  40% { top: 55%; opacity: 0.15; }
+  60% { top: 35%; opacity: 0.9; }
+  80% { top: 95%; opacity: 0.3; }
+}
+
+/* Glitch Vertikal - Set A */
+@keyframes glitchLineV1 {
+  0%, 100% { left: 85%; opacity: 0.7; }
+  20% { left: 15%; opacity: 0.2; }
+  40% { left: 50%; opacity: 0.9; }
+  65% { left: 30%; opacity: 0; }
+  85% { left: 70%; opacity: 0.8; }
+}
+
+/* Glitch Vertikal - Set B (Cakupan area kiri & tengah) */
+@keyframes glitchLineV2 {
+  0%, 100% { left: 25%; opacity: 0; }
+  15% { left: 65%; opacity: 0.85; }
+  35% { left: 5%; opacity: 0.3; }
+  55% { left: 90%; opacity: 0.75; }
+  75% { left: 40%; opacity: 0.1; }
+}
+
+/* Class Animasi dengan tempo acak */
+.animate-glitch-h1 { animation: glitchLineH1 0.6s steps(1) infinite; }
+.animate-glitch-h2 { animation: glitchLineH2 0.85s steps(1) infinite; }
+.animate-glitch-v1 { animation: glitchLineV1 1.2s steps(1) infinite; }
+.animate-glitch-v2 { animation: glitchLineV2 1.6s steps(1) infinite; }
+
+/* Animasi Ketik + Jeda Diam 3s + Hapus/Mundur */
+@keyframes typewriterWithHold {
+  /* 0% - 30%: Mengetik teks sampai selesai (durasi ~1.5s) */
+  0% {
+    width: 0;
+  }
+  30% {
+    width: 100%;
+  }
+
+  /* 30% - 80%: JEDA DIAM (Hold selama 3s) */
+  80% {
+    width: 100%;
+  }
+
+  /* 80% - 100%: Menghapus teks kembali ke awal (durasi ~1.5s) */
+  100% {
+    width: 0;
+  }
+}
+
+/* Kursor Berkedip Khas CMD */
+@keyframes cursorBlinkCmd {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-typewriter-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: bottom;
+  /* Total durasi 8s:*/
+  animation: typewriterWithHold 8s steps(32, end) infinite;
+}
+
+.animate-cursor-cmd {
+  animation: cursorBlinkCmd 1s infinite;
+}
+
+/* Animasi Sinar Scan Melintas */
+@keyframes scanSweep {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+/* Class Utility */
+.animate-scan-sweep {
+  animation: scanSweep 2s ease-in-out infinite;
+}

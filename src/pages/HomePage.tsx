@@ -1,0 +1,280 @@
+import React from 'react';
+import { Project } from '../types/project';
+import CyberHeroCard from '../components/CyberHeroCard';
+import { ProjectCard } from '../components/projects/ProjectCard';
+import { SectionHeading } from '../components/ui/SectionHeading';
+import { Reveal } from '../components/ui/Reveal';
+import { MagneticButton } from '../components/ui/MagneticButton';
+import { ArrowRight} from 'lucide-react';
+import PortalButton from '../components/PortalButton';
+
+interface HomePageProps {
+  featuredProjects: Project[];
+  onSelectProject: (slug: string) => void;
+  onNavigate: (path: string) => void;
+}
+
+export default function HeroSection(){
+
+}
+
+export const HomePage: React.FC<HomePageProps> = ({
+  featuredProjects,
+  onSelectProject,
+  onNavigate,
+}) => {
+return (
+  <div className="w-full">
+    {/* HERO SECTION */}
+    <section className="w-full min-h-screen flex items-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex-1 flex flex-col justify-between relative z-10 gap-8">
+        <CyberHeroCard />
+        {/* Small Bottom Metadata (Grid di Bawah) */}
+        <Reveal delay={400}>
+          <div className="hidden md:grid grid-cols-2 md:grid-cols-4 gap-24 font-mono text-xs uppercase tracking-[0.2em] text-neutral-400 border-t border-neutral-800/60 pt-12">
+            <div>
+              <span className="text-white font-bold">FARDHO Z</span>
+              <div className="text-[10px] text-neutral-400">ENGINEER // BUILDER</div>
+            </div>
+            <div>
+              <span className="text-neutral-300">DISCIPLINE</span>
+              <div className="text-[10px] text-neutral-400">SOFTWARE &amp; DATA</div>
+            </div>
+            <div className="hidden md:block">
+              <span className="text-neutral-300">FOCUS</span>
+              <div className="text-[10px] text-neutral-400">SOFTWARE ENGINEERING</div>
+            </div>
+            <div className="text-right">
+              <span className="text-neutral-400">LOCATION</span>
+              <div className="text-[10px] text-neutral-400">BASED IN INDONESIA</div>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Positioning Sentence & Quick CTA (Tata Letak Vertikal) */}
+        <Reveal delay={550}>
+          <div className="pt-12 md:pt-24 border-t border-neutral-800/60 flex flex-col items-center gap-8">
+            <p className="font-mono text-xs md:text-sm text-neutral-300 uppercase tracking-widest max-w-xl leading-relaxed text-center mx-auto">
+              I AM DEDICATED TO BUILDING SOFTWARE, MAKING SENSE OF DATA, AND DIGITAL EXPERIENCES THAT HAVE PURPOSE. MY WORKS SPEAKS LOUDER THAN MY WORDS — EXPLORE THE PROJECT.
+            </p>
+
+            <div className="flex items-center gap-2">
+              <MagneticButton
+                onClick={() => {
+                  onNavigate('/work');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                variant="primary"
+              >
+                <span>EXPLORE WORK</span>
+                <ArrowRight className="w-3.5 h-3.5 ml-1" />
+              </MagneticButton>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    {/* 4.2 INTRODUCTION SECTION */}
+    <section className="py-20 md:mt-24 border-t border-neutral-800/60 border-b border-neutral-800/80 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <Reveal>
+  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+    {/* Kolom Kiri: Sidebar Metadata (3 Kolom) */}
+    {/* Kolom Kiri: Sidebar Metadata (3 Kolom) */}
+<div className="lg:col-span-3 font-mono text-xs uppercase tracking-widest text-neutral-400 flex flex-col h-full">
+  
+  {/* GRUP ATAS: Judul & List Skill */}
+  <div>
+    <span className="block text-center md:inline md:text-left text-purple-400 font-semibold">// 01 &bull; INTRODUCTION</span>
+    <div className="mt-4 pt-6 md:pt-0 space-y-1.5 text-neutral-400 text-[12px] text-center md:text-left">
+      <div>BASED IN INDONESIA</div>
+      <div>SOFTWARE ENGINEERING</div>
+      <div>DATA ANALYTICS</div>
+      <div>BUSINESS INTELLIGENCE</div>
+    </div>
+  </div>
+
+  {/* GRUP BAWAH: mt-auto memaksa div ini ke dasar/end kolom */}
+      <div className="mt-auto pt-8 md:pt-0 pb-8 flex justify-center md:justify-start">
+      <button
+      type="button"
+      onClick={() => {
+        onNavigate('/about');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }}
+      data-cursor="link"
+      className="relative group overflow-hidden px-6 py-3.5 border border-neutral-700 bg-transparent text-neutral-300 font-mono text-xs uppercase tracking-widest flex items-center justify-center gap-2.5 transition-colors duration-500 hover:text-neutral-950 hover:border-purple-400 active:scale-95 cursor-pointer focus:outline-none"
+    >
+      {/* Liquid Fill Layer (Bawah ke Atas) */}
+      <span className="absolute inset-0 bg-purple-400 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+
+      {/* Button Text */}
+      <span className="relative z-10 font-bold transition-colors duration-300 group-hover:text-black">
+        MORE ABOUT ME
+      </span>
+
+      {/* Icon Fly-out Animation (ArrowRight) */}
+      <div className="relative z-10 overflow-hidden w-4 h-4">
+        <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:translate-x-4 group-hover:-translate-y-4 group-hover:text-black absolute inset-0" />
+        <ArrowRight className="w-4 h-4 transition-all duration-300 -translate-x-4 translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 text-black absolute inset-0" />
+      </div>
+    </button>
+  </div>
+
+</div>
+
+    {/* Kolom Kanan: Paragraf Teks (9 Kolom agar simetris mengisi sisa grid) */}
+    <div className="lg:col-span-9 md:py-7 uppercase">
+      <p className="text-neutral-400 text-base md:text-lg leading-relaxed font-mono text-justify max-w-none">
+        I&apos;m a software engineer focused on building practical software solutions with a strong interest in data. My work combines software development, data analysis, and engineering to turn problems into clear and useful solutions.
+      </p>
+      
+      <p className="mt-6 text-neutral-400 text-base md:text-lg leading-relaxed font-mono text-justify max-w-none">
+        I approach each project by first understanding the problem, then deciding how it should be built. Whether I’m developing a software system, working with data, or combining both, I focus on creating solutions that are thoughtful, effective, and useful.
+      </p>
+    </div>
+  </div>
+</Reveal>
+      </div>
+    </section>
+
+    {/* 4.3 SELECTED WORK SECTION */}
+    <section className="py-12 md:py-12 border-b border-neutral-800/80">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <Reveal>
+          <SectionHeading
+            title="SELECTED WORK"
+            tag="// 02 &bull; CASE STUDIES"
+            subtitle="SELECTED PROJECTS FROM MY WORK ACROSS SOFTWARE ENGINEERING AND DATA."
+            
+          />
+        </Reveal>
+
+        {/* Project List */}
+        <div className="space-y-4">
+          {featuredProjects.map((project, index) => (
+            <Reveal key={project.slug} delay={index * 120}>
+              <ProjectCard
+                project={project}
+                index={index}
+                onSelectProject={onSelectProject}
+              />
+            </Reveal>
+          ))}
+        </div>
+
+        {/* View All Work CTA */}
+        <Reveal delay={200}>
+          <div className="mt-12 md:py-12 text-center">
+            <MagneticButton
+              onClick={() => {
+                onNavigate('/work');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              variant="outline"
+            >
+              <span>VIEW COMPLETE PROJECT LIBRARY ({featuredProjects.length}+)</span>
+              <ArrowRight className="w-4 h-4 ml-1" />
+            </MagneticButton>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+
+
+    {/* 4.5 WHAT I BUILD */}
+    <section className="py-12 md:py-12 border-b border-neutral-800/80">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <Reveal>
+          <SectionHeading
+            title="CAPABILITIES"
+            tag="// 03 &bull; CORE EXPERTISE"
+            subtitle="CORE AREAS I WORK IN ACROSS SOFTWARE ENGINEERING AND DATA."
+          />
+        </Reveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mt-12">
+          <Reveal delay={100}>
+            <div className="pt-0 md:pt-6">
+              <div className="font-mono text-lg md:text-[11px] text-purple-400 tracking-widest mb-3">01</div>
+              <h3 className="font-display font-bold text-xl md:text-2xl text-white tracking-tight uppercase mb-3">
+                SOFTWARE ENGINEERING
+              </h3>
+              <p className="text-neutral-400 text-sm leading-relaxed font-light text-justify">
+                Web applications, full-stack development, REST APIs, backend services, and application architecture.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={180}>
+            <div className="pt-6">
+              <div className="font-mono text-lg md:text-[11px] text-purple-400 tracking-widest mb-3">02</div>
+              <h3 className="font-display font-bold text-xl md:text-2xl text-white tracking-tight uppercase mb-3">
+                DATA <br className="hidden md:inline" /> ANALYTICS
+              </h3>
+              <p className="text-neutral-400 text-sm leading-relaxed font-light text-justify">
+                Data cleaning, exploratory analysis, statistical analysis, data processing, and data visualization.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={260}>
+            <div className="pt-6">
+              <div className="font-mono text-lg md:text-[11px] text-purple-400 tracking-widest mb-3">03</div>
+              <h3 className="font-display font-bold text-xl md:text-2xl text-white tracking-tight uppercase mb-3">
+                BUSINESS INTELLIGENCE
+              </h3>
+              <p className="text-neutral-400 text-sm leading-relaxed font-light text-justify">
+                Data warehousing, dimensional modeling, SQL, DAX, Power BI dashboards, and business reporting.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={340}>
+            <div className="pt-6">
+              <div className="font-mono text-lg md:text-[11px] text-purple-400 tracking-widest mb-3">04</div>
+              <h3 className="font-display font-bold text-xl md:text-2xl text-white tracking-tight uppercase mb-3">
+                DATA ENGINEERING
+              </h3>
+              <p className="text-neutral-400 text-sm leading-relaxed font-light text-justify">
+                Data pipelines, ETL workflows, database design, data transformation, and data quality processes.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+
+    {/* 4.6 CONTACT CTA */}
+<section className="relative py-24 md:py-36 bg-[#040405] text-center overflow-hidden">
+  <div className="max-w-6xl mx-auto px-6 relative z-10">
+    <Reveal>
+      <h2 className="font-display font-black text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-white tracking-tight leading-[1.05] sm:leading-[0.95] uppercase mb-6 md:mb-12 text-center">
+  LET&apos;S BUILD{" "}
+  <br className="hidden sm:inline" />
+  <span className="text-purple-500">SOMETHING</span>{" "}
+  <br className="hidden sm:inline" />
+  <span className="text-white">USEFUL</span>
+  <span className="text-purple-500">.</span>
+</h2>
+
+      <p className="font-mono text-xs sm:text-sm text-neutral-400 tracking-wider uppercase max-w-[260px] sm:max-w-lg mx-auto mb-24 md:mb-12 leading-normal">
+        AVAILABLE FOR COLLABORATION, PROJECTS, AND NEW OPPORTUNITIES.
+      </p>
+
+      <div className="flex justify-center md:py-24">
+        <PortalButton
+          onClick={() => {
+            onNavigate('/contact');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+        />
+      </div>
+    </Reveal>
+  </div>
+</section>
+  </div>
+);
+}

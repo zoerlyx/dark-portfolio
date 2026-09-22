@@ -1,0 +1,815 @@
+[
+  {
+    "slug": "nusantara-retail",
+    "title": "Nusantara Retail",
+    "category": "Business Intelligence",
+    "categories": ["BI", "DATA"],
+    "year": 2026,
+    "featured": true,
+    "description": "A Business Intelligence platform designed to monitor retail sales performance while identifying and tracing data quality issues through a structured data pipeline.",
+    "role": "BI Developer & Data Pipeline Engineer",
+    "image": "/gallery-1-a.jpg",
+    "gallery": [
+      "/gallery-1-a.jpg",
+      "/gallery-1-b.jpg",
+      "/gallery-1-c.jpg"
+    ],
+    "technologies": ["Power BI", "PostgreSQL", "Python", "Docker", "DAX", "EXCEL"],
+    "links": {
+      "github": "https://github.com/zoerlyx/nusantara-retail-bi-dashboard",
+      "demo": ""
+    },
+    "overview": "Nusantara Retail is a Business Intelligence project built to transform retail transaction data into actionable business insights while maintaining visibility into the quality of the underlying data. The project goes beyond dashboard development by establishing a structured data flow across raw data, staging, warehouse, and quality layers, creating a clear foundation for both business monitoring and data quality assessment.",
+    "context": "In a retail environment with a large volume of transactions, business dashboards are only as reliable as the data behind them. This project therefore focuses on two connected areas: monitoring business performance through Power BI and assessing the quality of the data used for analysis. The dataset represents a one-year retail operation with 100,000 sales transactions, 15,000 customers, 500 products, 30 stores, and 8 regions.",
+    "problem": "Operational datasets can contain issues such as duplicate transaction IDs, inconsistent relationships between entities, and mismatches between transaction records and store or regional information. If these issues flow directly into analytical models, they can distort aggregations, metrics, and business insights. The challenge was to create a system that could detect, measure, and trace these issues while preserving the original source data for further investigation.",
+    "process": "The project began by generating the retail dataset with Python as the source of truth. After the baseline dataset was created, controlled data quality issues were intentionally injected to simulate conditions that may occur in real operational data, including duplicate transaction IDs and inconsistencies between transaction, store, and regional data. The resulting dataset was then processed through several PostgreSQL layers: raw, staging, warehouse, and quality. SQL was used for transformation while maintaining a clear separation between source and processed data. The quality layer applied Data Quality rules to detect, measure, and record issues at both the assessment-result and affected-record levels. The warehouse data and quality assessment results were then connected to Power BI to build structured business monitoring and data quality dashboards.",
+    "result": "The final result is a BI dashboard that provides more than a view of sales performance. It also gives visibility into the quality of the data behind those metrics, allowing users to monitor business indicators, identify data quality problems, examine issue patterns, and trace individual affected records. This approach creates a more transparent monitoring process and helps distinguish actual business conditions from problems originating in the underlying data.",
+    "metrics": [
+      {
+        "label": "Sales Transactions",
+        "value": "100K",
+        "description": "Sales transactions processed in the data warehouse."
+      },
+      {
+        "label": "Customers",
+        "value": "15K",
+        "description": "Customer records included in the analysis."
+      },
+      {
+        "label": "Products",
+        "value": "500",
+        "description": "Products represented in the retail dataset."
+      },
+      {
+        "label": "Stores",
+        "value": "30",
+        "description": "Stores distributed across 8 regions."
+      },
+      {
+        "label": "DQ Results",
+        "value": "5,640",
+        "description": "Recorded data quality assessment results."
+      },
+      {
+        "label": "DQ Issues",
+        "value": "9,738",
+        "description": "Individual data quality issues identified across affected records."
+      }
+    ]
+  },
+  {
+    "slug": "facebook-group-scraper",
+    "title": "Facebook Group Scraper",
+    "category": "Data Engineering",
+    "categories": ["DATA", "CLIENT"],
+    "year": 2025,
+    "featured": true,
+    "description": "An automated data collection system that extracts posts, comments, and time-related metadata from Facebook Groups, then processes the collected data into structured HTML, Excel, and CSV outputs.",
+    "role": "Data Collection & Automation Engineer",
+    "image": "/gallery-2-a.jpg",
+    "gallery": [
+      "/gallery-2-a.jpg",
+      "/gallery-2-b.jpg",
+      "/gallery-2-c.jpg"
+    ],
+    "technologies": [
+      "Python",
+      "Selenium",
+      "BeautifulSoup",
+      "Google Colab",
+      "HTML",
+      "Excel",
+      "CSV"
+    ],
+    "links": {
+      "github": "https://github.com/zoerlyx/fb-group-scraping",
+      "demo": ""
+    },
+    "overview": "Facebook Group Scraper is a data collection project designed to automatically collect posts and comments from three Facebook Groups. The system extracts post content along with its related comments, processes date metadata, and organizes the collected data into multiple output formats: HTML for readable and navigable archives, and Excel and CSV for further data processing and analysis.",
+    "context": "Facebook Groups generate large volumes of posts and comments that continuously grow over time, making them difficult to collect and document manually. This project was developed to automate the data collection process across three Facebook Groups with relatively large member bases. In addition to post and comment content, publication timestamps are preserved and normalized to maintain consistent temporal context across the collected data.",
+    "problem": "Manually collecting posts and comments is time-consuming, difficult to perform consistently, and inefficient when dealing with large volumes of data. The information displayed by Facebook does not always provide dates in a consistent absolute format, while the relationship between posts and comments needs to be preserved to retain the context of each discussion. The challenge was to build a workflow that could automatically load pages, extract posts and their comments, normalize time metadata, and produce outputs suitable for both archiving and data analysis.",
+    "process": "The process began by accessing each Facebook Group using Selenium to automate the browser and progressively load posts. Once the content was available, BeautifulSoup was used to extract post information, comments, and relevant metadata. The system then processed post publication dates into Post_Date_Absolute and comment dates into Comment_Date_Absolute to ensure consistent time representation. Post and comment data were structured so that each comment remained associated with its source post. After the collection and parsing stages were completed, the data was transformed into multiple output formats: HTML as a readable and navigable archive, and Excel and CSV as tabular formats for further processing and analysis.",
+    "result": "The final result is a structured collection of archives and datasets from three Facebook Groups containing posts, comments, and their respective time metadata. The HTML output provides a readable and navigable representation of the collected archive, while Excel and CSV provide tabular data that can be used for further processing and analysis. The normalization of Post_Date_Absolute and Comment_Date_Absolute also preserves temporal context, making it easier to analyze the relationship between each post and the commenting activity associated with it.",
+    "metrics": [
+          {
+            "label": "Facebook Groups",
+            "value": "3",
+            "description": "Three Facebook Groups processed through the data collection workflow."
+          },
+          {
+            "label": "Data Collected",
+            "value": "Posts + Comments",
+            "description": "The system collects posts together with their associated comments."
+          },
+          {
+            "label": "Date Metadata",
+            "value": "Absolute",
+            "description": "Post and comment dates are normalized into Post_Date_Absolute and Comment_Date_Absolute."
+          },
+          {
+            "label": "Output Formats",
+            "value": "3",
+            "description": "Data is available in HTML, Excel, and CSV formats."
+          }
+    ]
+  },
+  {
+    "slug": "dengarbain",
+    "title": "DengarBain",
+    "category": "Software Development",
+    "categories": ["SOFTWARE", "MOBILE"],
+    "year": 2026,
+    "featured": true,
+    "description": "A Progressive Web App for learning Hadith Arbain, designed with an accessibility-first approach to help visually impaired users read, listen to, and memorize hadith independently.",
+    "role": "Frontend Engineer, UI/UX & Accessibility",
+    "image": "/gallery-6-a.jpg",
+    "gallery": [
+      "/gallery-6-a.jpg",
+      "/gallery-6-b.jpg",
+      "/gallery-6-c.jpg"
+    ],
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+      "IndexedDB",
+      "PWA",
+      "Cloudflare R2"
+    ],
+    "links": {
+      "github": "https://github.com/Irs622/Dengarbain",
+      "demo": "https://dengarbain.ilhapress.com/"
+    },
+    "overview": "DengarBain is a Progressive Web App for learning Hadith Arbain, developed with a strong focus on accessibility for visually impaired users. The application provides 42 Hadith Arbain along with learning features, search, memorization progress tracking, settings, help, and offline support. As a web-based multiplatform application, DengarBain is designed to provide a responsive learning experience across both desktop and mobile devices.",
+    "context": "Learning hadith requires not only complete and accessible content, but also an interaction experience that can accommodate different accessibility needs. DengarBain was developed to provide a more independent learning experience for visually impaired users by using a simple interface structure, semantic HTML, screen reader support, and interaction patterns designed with assistive technologies such as TalkBack in mind. The application also adopts the PWA approach so that learning materials and progress can remain accessible more flexibly across different usage conditions.",
+    "problem": "Many web-based learning platforms do not adequately consider how visually impaired users navigate interfaces, understand page structures, and interact with application elements through screen readers. In addition, an effective learning experience requires a practical way to track memorization progress and continue learning when an internet connection is unavailable. The challenge was to build a simple and responsive interface while ensuring that every important part of the application remained understandable and operable through accessible interaction patterns.",
+    "process": "Development began with defining the interface structure and learning flow, followed by implementation using Next.js, React, TypeScript, and Tailwind CSS. Accessibility was incorporated through semantic HTML, accessible labels, clear navigation structures, and interaction patterns optimized for screen readers and TalkBack. Learning features include hadith search, hadith details, memorization status, learning progress, settings, help, and application information. User progress is stored locally using IndexedDB to support offline learning. For synchronization, the application uses Next.js route handlers, Prisma, PostgreSQL, and device-based identification to connect local data with server-side storage. Supporting application assets are distributed through Cloudflare R2 and a CDN.",
+    "result": "The result is an accessible Hadith Arbain learning PWA that provides a responsive experience across different devices and is designed with visually impaired users in mind. The application delivers 42 hadith along with search and memorization progress tracking, while its accessibility-first approach makes interface elements easier to understand and navigate using screen readers. IndexedDB allows learning progress to remain available locally during offline use, while the synchronization mechanism provides a way to maintain user data between local storage and the server.",
+    "metrics": [
+      {
+        "label": "Hadith",
+        "value": "42",
+        "description": "Hadith Arbain available for learning."
+      },
+      {
+        "label": "Platform",
+        "value": "PWA",
+        "description": "A responsive web application designed for cross-device use."
+      },
+      {
+        "label": "Accessibility",
+        "value": "Screen Reader",
+        "description": "The interface is designed to support navigation and interaction through screen readers."
+      },
+      {
+        "label": "Offline Storage",
+        "value": "IndexedDB",
+        "description": "Learning progress is stored locally to support offline use."
+      }
+    ]
+  },
+  {
+    "slug": "road-vision",
+    "title": "Road Vision",
+    "category": "Data Analytics",
+    "categories": ["DATA"],
+    "year": 2026,
+    "featured": true,
+    "description": "Interactive data analytics dashboard for exploring, evaluating, and visualizing a road damage dataset through structured data analysis and statistical insights.",
+    "role": "Data Analyst & Dashboard Developer",
+    "image": "/gallery-3-a.jpg",
+    "gallery": [
+      "/gallery-3-a.jpg",
+      "/gallery-3-b.jpg",
+      "/gallery-3-c.jpg"
+    ],
+    "technologies": [
+    "Python",
+    "Streamlit",
+    "Pandas",
+    "NumPy",
+    "Plotly"
+  ],
+    "links": {
+      "github": "https://github.com/zoerlyx/streamlit-dashboard-road-sentry",
+      "demo": "https://dashboard-road-sentry-gnb4nytjo5fhnj72to3xak.streamlit.app/"
+    },
+    "overview": "Road Vision is an interactive data analytics dashboard developed to explore, analyze, and validate a road damage dataset. The project combines data wrangling, data quality assessment, exploratory data analysis, feature engineering, A/B testing, and statistical visualization into a single analytical workflow. The dashboard transforms raw and processed data into structured insights that make the characteristics and quality of the dataset easier to understand.",
+    "context": "Road damage datasets contain various attributes that need to be examined before they can be interpreted effectively. Beyond identifying the types of damage present, it is important to understand the distribution of objects, the quality of the collected data, and additional characteristics that can be derived from existing annotations. Road Vision was developed as an interactive environment to bring these analytical stages together and provide a clearer view of the dataset through visual exploration and statistical summaries.",
+    "problem": "Analyzing a labeled image dataset manually can make it difficult to identify patterns, evaluate data quality, and understand the characteristics of annotated objects at scale. Basic class distributions alone also do not provide enough context to describe the dataset comprehensively. The challenge was to build an analytical workflow that could assess data quality, explore dataset characteristics, generate meaningful additional features, and compare analytical approaches through measurable experiments.",
+    "process": "The process began with data wrangling to prepare and structure the dataset for analysis. A Data Quality Assessment was then performed to evaluate data completeness and integrity, including image availability, label availability, and file validity. Exploratory Data Analysis was used to examine damage class distribution, object frequency, dataset composition, and descriptive statistics. Feature engineering was applied to bounding box annotations to derive object area and classify damage severity into Small, Medium, and Large categories. An A/B testing approach was then used to compare analysis based only on damage class information with analysis that also incorporated the generated severity features. The entire workflow was presented through an interactive Streamlit dashboard using Plotly for data visualization.",
+    "result": "The analysis produced a structured view of the dataset, showing that it contains 2,009 images and 4,737 annotated objects across three damage classes. The dataset achieved a 100% Data Quality Score, with no missing images, missing labels, or corrupted image files identified. Crack was the most dominant damage category, followed by Pothole and Manhole. The feature engineering process added severity information that provided a deeper analytical perspective than class information alone, while the interactive dashboard made the resulting findings easier to explore and interpret.",
+    "metrics": [
+      {
+        "label": "Total Images",
+        "value": "2,009",
+        "description": "Total number of images analyzed in the dataset."
+      },
+      {
+        "label": "Annotated Objects",
+        "value": "4,737",
+        "description": "Total number of annotated road damage objects."
+      },
+      {
+        "label": "Damage Classes",
+        "value": "3",
+        "description": "Three road damage categories analyzed in the dataset."
+      },
+      {
+        "label": "Data Quality Score",
+        "value": "100%",
+        "description": "Overall score obtained from the Data Quality Assessment."
+      }
+    ]
+  },
+  {
+    "slug": "syncteam-ai",
+    "title": "SyncTeam-AI",
+    "category": "AI-Powered Software",
+    "categories": ["SOFTWARE",
+      "AI"],
+    "year": 2026,
+    "featured": true,
+    "description": "An AI-powered productivity platform for developer teams that combines project management, collaboration, productivity analytics, and intelligent planning within a unified workspace.",
+    "role": "Full-stack Developer & AI Integration",
+    "image": "/gallery-4-a.jpg",
+    "gallery": [
+      "/gallery-4-a.jpg",
+      "/gallery-4-b.jpg",
+      "/gallery-4-c.jpg"
+    ],
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "Groq API",
+      "Llama 3.3 70B",
+      "Zod",
+      "Hello Pangea DnD",
+      "Vercel"
+    ],
+    "links": {
+      "github": "https://github.com/zoerlyx/syncteam-ai",
+      "demo": "https://syncteam-ai.vercel.app/"
+    },
+    "overview": "SyncTeam-AI is a project management and collaboration platform designed specifically for software development teams. It combines project planning, task management, team collaboration, productivity analytics, and AI assistance within a single workspace. AI is integrated directly into the planning workflow to transform high-level project requirements into structured roadmaps, actionable tasks, and task ownership recommendations.",
+    "context": "Software development teams often handle project planning, task distribution, progress tracking, and team coordination across multiple tools. SyncTeam-AI was developed to bring these workflows into one platform while using team profiles, skills, and activity data to provide additional context for planning and task assignment.",
+    "problem": "Turning high-level project requirements into actionable development tasks can be time-consuming and often requires extensive manual planning. Task assignment can also depend heavily on individual judgment without considering team members' skills, profiles, and recent activity in a structured way. The challenge was to build a platform that could simplify project planning, organize development work, and provide more context-aware task assignment recommendations.",
+    "process": "Development began with a full-stack foundation using Next.js, React, TypeScript, Tailwind CSS, and Supabase for authentication, database management, and user data. The project management layer was then developed to handle projects, tasks, activities, developer profiles, and team collaboration. Task management is presented through a Kanban-style dashboard with drag-and-drop interaction, allowing teams to organize and track work visually. The AI layer was integrated through the Groq API and Llama 3.3 70B to generate task breakdowns, project roadmaps, and task ownership recommendations based on project requirements, team skills, profiles, and activity. The platform was further extended with an XP system, team leaderboard, and productivity reports to track individual and team contributions.",
+    "result": "The result is a unified project management platform that combines AI-assisted planning with collaborative development workflows. Teams can manage projects and tasks through a Kanban dashboard, generate structured roadmaps and task breakdowns, and receive task assignment recommendations based on team capabilities. XP, leaderboard, and productivity reporting features provide an additional layer for monitoring contribution and team activity.",
+    "metrics": [
+      {
+        "label": "AI Capabilities",
+        "value": "3",
+        "description": "Task breakdown, roadmap generation, and task assignment recommendation."
+      },
+      {
+        "label": "Task Management",
+        "value": "Kanban",
+        "description": "Project tasks are organized through a visual Kanban dashboard with drag-and-drop interaction."
+      },
+      {
+        "label": "AI Model",
+        "value": "Llama 3.3 70B",
+        "description": "Large language model used to power the platform's AI-assisted planning features."
+      },
+      {
+        "label": "Deployment",
+        "value": "Vercel",
+        "description": "The application is deployed using Vercel."
+      }
+    ]
+  },
+  {
+    "slug": "road-sentry",
+    "title": "Road-Sentry",
+    "category": "AI-Powered Software",
+    "categories": ["SOFTWARE", "AI", "MOBILE"],
+    "year": 2026,
+    "featured": true,
+    "description": "An AI-powered web platform for reporting and monitoring road damage, combining automated image detection, geographic mapping, priority assessment, and report tracking.",
+    "role": "Project Manager, Data Preparation & QA",
+    "image": "/gallery-5-a.jpg",
+    "gallery": [
+      "/gallery-5-a.jpg",
+      "/gallery-5-b.jpg",
+      "/gallery-5-c.jpg"
+    ],
+    "technologies": [
+      "React",
+      "Vite",
+      "Node.js",
+      "Express.js",
+      "FastAPI",
+      "PostgreSQL",
+      "YOLOv8",
+      "OpenStreetMap"
+    ],
+    "links": {
+      "github": "https://github.com/zoerlyx/road-sentry-app",
+      "demo": "https://road-sentry-frontend-d2ws.vercel.app/"
+    },
+    "overview": "RoadSentry is an AI-powered web platform that connects public road damage reporting with automated image detection, geographic visualization, priority assessment, and report monitoring. Users can submit road damage reports with photos and locations, while the system processes the submitted images to identify damage types and provides supporting information for verification and prioritization.",
+    "context": "Road damage reporting requires more than simply collecting photos and locations. Reports need to be prepared, validated, analyzed, mapped, and monitored so that the resulting information can support a more structured response. RoadSentry was developed as an integrated platform that connects public reporting with AI-assisted analysis and geographic monitoring.",
+    "problem": "Road damage reports can become difficult to verify and prioritize when information is collected without consistent data preparation, image analysis, and geographic context. The project therefore required coordinated work across dataset preparation, system development, AI integration, quality assurance, presentation, and deployment to ensure that the complete reporting workflow could operate reliably.",
+    "process": "The project involved coordinating development activities from the preparation stage through deployment. Data preparation included collecting, organizing, cleaning, and processing the road damage dataset used for AI development. The AI component used YOLOv8 to detect pothole, crack, and manhole classes from submitted images. The platform also incorporated geographic information through OpenStreetMap and a priority scoring mechanism based on damage severity, surrounding road conditions, nearby facilities, report frequency, and report age. As Project Manager, the role covered project coordination, dataset preparation and processing, pitching and presentation, quality assurance, workflow validation, and involvement during the deployment stage. QA focused on verifying the end-to-end reporting flow, AI results, data consistency, and overall system readiness.",
+    "result": "The project resulted in a working AI-powered road damage reporting platform that connects public reporting, automated image analysis, geographic visualization, priority assessment, and report tracking. The completed workflow allows submitted reports to be processed and visualized with supporting AI and location information, while the project coordination, dataset preparation, pitching, QA, and deployment involvement helped ensure the system was properly prepared and validated before delivery.",
+    "metrics": [
+      {
+        "label": "AI Model",
+        "value": "YOLOv8",
+        "description": "Computer vision model used to detect road damage from submitted images."
+      },
+      {
+        "label": "Damage Classes",
+        "value": "3",
+        "description": "Pothole, Crack, and Manhole."
+      },
+      {
+        "label": "GIS",
+        "value": "OpenStreetMap",
+        "description": "Used to visualize and provide geographic context for road damage reports."
+      },
+      {
+        "label": "Core Scope",
+        "value": "End-to-End",
+        "description": "Project coordination covered dataset preparation, pitching, QA, workflow validation, and deployment involvement."
+      }
+    ]
+  },
+  {
+    "slug": "qcare",
+    "title": "QCare",
+    "category": "Mobile Application",
+    "categories": ["MOBILE", "SOFTWARE"],
+    "year": 2025,
+    "featured": false,
+    "description": "An Android application for digitally managing clinic registration and queuing, allowing patients to request queue numbers remotely while helping clinic staff manage the service process more efficiently.",
+    "role": "UI/UX Designer & Frontend Developer",
+    "image": "/gallery-7-a.jpg",
+    "gallery": [
+      "/gallery-7-a.jpg",
+      "/gallery-7-b.jpg",
+      "/gallery-7-c.jpg"
+    ],
+    "technologies": [
+      "Kotlin",
+      "Jetpack Compose",
+      "XML",
+      "SQLite",
+      "MVVM",
+      "Android"
+    ],
+      "links": {
+      "github": "https://github.com/zoerlyx/q-care",
+      "demo": "https://play.google.com/store/apps/details?id=com.qcare.app"
+    },
+    "overview": "QCare is an Android application designed to digitize the clinic registration and queue management process. Patients can create an account, select an available doctor, request a queue number, receive their number after approval, and monitor their queue status through the application. On the staff side, QCare provides tools to manage doctor information, review queue requests, approve or decline patients, and monitor their arrival status.",
+    "context": "Traditional clinic registration and queue processes may require patients to arrive in person simply to register and obtain a queue number. This can increase waiting time for patients and create additional administrative work for clinic staff. QCare was designed to move these processes into a digital workflow, allowing patients and staff to interact through a more structured and convenient system.",
+    "problem": "Patients need a more convenient way to register and request a queue number without having to visit the clinic beforehand. At the same time, clinic staff need a structured mechanism to manage doctor availability, review queue requests, organize the queue, and monitor patient arrivals. The challenge was to design an intuitive mobile experience that could support both sides while keeping their workflows clearly separated.",
+    "process": "The development process began by mapping the primary user journeys for patients and clinic staff, followed by designing the interface and interaction flow around their respective needs. Patient features cover account authentication, doctor selection, queue requests, queue number assignment, status monitoring, and arrival confirmation. Staff features include doctor management, availability updates, queue request review, approval or rejection, queue management, and patient arrival tracking. The mobile interface was implemented using Kotlin with Jetpack Compose and XML, while the application structure followed the MVVM architecture to maintain a clear separation between the UI, presentation logic, and data layer. SQLite was used for local data storage.",
+    "result": "The result is an Android application that brings registration, queue requests, approval, and patient arrival tracking into a single digital workflow. Patients can request a queue without visiting the clinic solely for registration, while clinic staff gain a more organized way to manage doctors, queue requests, and patient attendance. The interface and interaction flow were designed to keep both user roles clear and easy to navigate.",
+    "metrics": [
+      {
+        "label": "Platform",
+        "value": "Android",
+        "description": "Mobile application developed for Android devices."
+      },
+      {
+        "label": "User Roles",
+        "value": "2",
+        "description": "Supports dedicated workflows for patients and clinic staff."
+      },
+      {
+        "label": "Architecture",
+        "value": "MVVM",
+        "description": "Used to maintain clear separation of responsibilities within the application."
+      },
+      {
+        "label": "Queue Workflow",
+        "value": "End-to-End",
+        "description": "Covers queue requests, approval, number assignment, status tracking, and arrival confirmation."
+      }
+    ]
+  },
+  {
+    "slug": "secure-multimedia-codec-studio",
+    "title": "Secure Multimedia Codec Studio",
+    "category": "Full-stack Application",
+    "categories": ["SOFTWARE"],
+    "year": 2026,
+    "featured": false,
+    "description": "A full-stack web application for exploring lossless and lossy multimedia compression, as well as steganography, through interactive image, audio, and video processing.",
+    "role": "Full-stack Developer",
+    "image": "/gallery-8-a.jpg",
+    "gallery": [
+      "/gallery-8-a.jpg",
+      "/gallery-8-b.jpg",
+      "/gallery-8-c.jpg"
+    ],
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "FastAPI",
+      "Python",
+      "OpenCV",
+      "FFmpeg",
+      "Zlib"
+    ],
+    "links": {
+      "github": "https://github.com/zoerlyx/secure-codec-studio",
+      "demo": "https://secure-codec-studio.vercel.app/"
+    },
+    "overview": "Secure Multimedia Codec Studio is a full-stack web application developed to demonstrate and explore multimedia compression and steganography through an interactive interface. The application supports both lossless and lossy compression, decompression for losslessly compressed media, as well as hidden message embedding and extraction through steganography. Media processing covers images, audio, and video using algorithms and codecs suited to each media type.",
+    "context": "Understanding multimedia compression involves more than reducing file size. It also requires considering the trade-offs between data preservation, quality, and storage efficiency. Steganography adds another dimension by embedding hidden information within digital media. This project was developed as an interactive environment where users can directly experiment with these techniques and observe the characteristics and trade-offs of each approach.",
+    "problem": "Lossless compression, lossy compression, and steganography are often studied separately, making it difficult to understand their practical differences and trade-offs through direct experimentation. Multimedia processing also requires different approaches depending on the type of media being handled. The challenge was to build a single application that could accept multimedia files, process them using appropriate methods, present the results interactively, and provide useful metrics such as file size, compression ratio, and output quality.",
+    "process": "Development began with an SPA-style interface using Next.js, React, TypeScript, and Tailwind CSS, featuring an upload dropzone, processing mode selection, result cards, and media preview. The backend was developed with FastAPI using a layered structure separating routing, validation, services, and algorithms. Zlib was used for lossless compression so that original data could be fully restored, while lossy compression used quality-based processing to reduce file size. Steganography was implemented using the Least Significant Bit (LSB) method for embedding and extracting hidden messages. Audio and video processing used FFmpeg with appropriate codecs, while OpenCV was used for image processing. Processing results were then returned to the frontend together with metadata such as original file size, processed size, compression ratio, and processing time.",
+    "result": "The result is an interactive web application that allows users to experiment with multiple multimedia processing techniques within a single workflow. Users can compare lossless and lossy compression results, restore media through lossless decompression, and embed or extract hidden messages through steganography. The application also provides media previews and processing metrics, making it possible to observe the differences between data preservation, file size reduction, and quality changes directly.",
+    "metrics": [
+      {
+        "label": "Processing Modes",
+        "value": "5",
+        "description": "Lossless Compress, Decompress, Lossy Compress, Steganography, and Extract."
+      },
+      {
+        "label": "Media Types",
+        "value": "3",
+        "description": "Supports image, audio, and video processing."
+      },
+      {
+        "label": "Compression Types",
+        "value": "2",
+        "description": "Includes both lossless and lossy compression."
+      },
+      {
+        "label": "Steganography",
+        "value": "LSB",
+        "description": "Least Significant Bit is used to embed and extract hidden messages."
+      },
+      {
+        "label": "Analytics",
+        "value": "Real-time",
+        "description": "Processing results display file size, compression ratio, and processing time."
+      }
+    ]
+  },
+  
+  {
+    "slug": "trackee",
+    "title": "Trackee",
+    "category": "Full-stack Application",
+    "categories": [
+      "SOFTWARE"
+    ],
+    "year": 2026,
+    "featured": false,
+    "description": "A personal finance management web application that helps users track income, expenses, budgets, and financial activity through a structured and intuitive dashboard.",
+    "role": "Full-stack Engineer",
+    "image": "/gallery-9-a.jpg",
+    "gallery": [
+      "/gallery-9-a.jpg",
+      "/gallery-9-b.jpg",
+      "/gallery-9-c.jpg"
+    ],
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "shadcn/ui",
+      "Lucide React",
+      "Vercel"
+    ],
+    "links": {
+      "github": "https://github.com/zoerlyx/trackee",
+      "demo": "https://trackee-app.vercel.app/"
+    },
+    "overview": "Trackee is a web application designed to help users manage their personal finances in a more structured way. It provides income and expense tracking, transaction category management, budget monitoring, and financial analytics through a centralized dashboard with interactive visualizations.",
+    "context": "Personal finance management requires more than simply recording transactions. Users also need a simple way to understand income, expenses, spending patterns, and balance changes over time. Trackee was developed as a centralized digital workspace that combines transaction tracking with financial visualization, allowing users to understand their financial condition without manually processing their data.",
+    "problem": "Manual financial tracking can make it difficult to gain a clear overview of overall financial conditions. A simple transaction list also provides limited insight into balance trends, expense composition, or the relationship between income and spending. The challenge was to create a system that remains simple for everyday transaction tracking while turning the collected data into meaningful and easy-to-understand financial information.",
+    "process": "Development began by defining the core data structure and user flows for authentication, income and expense tracking, transaction categories, budgets, and dashboard analytics. The frontend was built using Next.js, React, TypeScript, and Tailwind CSS, with shadcn/ui components supporting the interface. Supabase was used as the backend for authentication and application data management. The dashboard was then enhanced with visualizations for balance trends, expense breakdowns, and income-versus-expense comparisons, providing clearer context around the recorded transactions. The application was designed responsively for different screen sizes and deployed through Vercel.",
+    "result": "The result is a personal finance management application that combines transaction tracking and financial analytics within a single interface. Users can manage income, expenses, categories, and budgets while monitoring their financial condition through dashboard summaries, balance trends, expense breakdowns, and income-versus-expense comparisons. The responsive interface also allows the application to remain practical across both desktop and mobile devices.",
+    "metrics": [
+      {
+        "label": "Core Modules",
+        "value": "6",
+        "description": "Authentication, dashboard, income tracking, expense tracking, category management, and financial analytics."
+      },
+      {
+        "label": "Financial Views",
+        "value": "3+",
+        "description": "Balance trends, expense breakdown, and income-versus-expense comparison."
+      },
+      {
+        "label": "Platform",
+        "value": "Web",
+        "description": "A responsive web application designed for different screen sizes."
+      },
+      {
+        "label": "Backend",
+        "value": "Supabase",
+        "description": "Used for authentication and application data management."
+      }
+    ]
+  },
+  {
+    "slug": "cssmora-website",
+    "title": "CSSMoRA Website",
+    "category": "Website Development",
+    "categories": ["SOFTWARE"],
+    "year": 2026,
+    "featured": false,
+    "description": "An organizational website developed to provide a centralized digital information hub, strengthen CSSMoRA's online presence, and make organizational information more accessible to members and visitors.",
+    "role": "Website Developer & Administrator",
+    "image": "/gallery-10-a.jpg",
+    "gallery": [
+      "/gallery-10-a.jpg",
+      "/gallery-10-b.jpg",
+      "/gallery-10-c.jpg"
+    ],
+    "technologies": [
+      "WordPress",
+      "PHP",
+      "MySQL",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "links": {
+      "github": "",
+      "demo": "https://cssmorauinsgdbdg.com/"
+    },
+    "overview": "CSSMoRA Website is an organizational website that serves as a digital information hub and online representation of CSSMoRA. The website is structured to present organizational information, activities, and other relevant content for members and visitors through a centralized web platform.",
+    "context": "For an organization, a website provides an important channel for communicating its identity, activities, information, and public presence. When information is distributed across different media, members and visitors may have difficulty finding relevant content. The website was therefore developed to provide a more centralized and structured source of organizational information.",
+    "problem": "Dispersed organizational information can make it difficult for members and visitors to find relevant content. At the same time, an organizational website needs a clear structure so that its content can be maintained and updated as activities and communication needs evolve. The challenge was to build and maintain a website that could present information in an organized way while remaining accessible and practical to use.",
+    "process": "Development began by defining the website structure and organizational content requirements, followed by implementing the required interface and information components. After the initial development, website administration and maintenance were carried out to keep the content relevant and updated according to organizational needs. The role also involved managing the website as part of the organization's broader digital administration activities.",
+    "result": "The result is an organizational website that provides a more structured digital information hub and online presence for CSSMoRA. It serves as a centralized platform for presenting organizational information, activities, and communication content while providing a more accessible experience for members and visitors.",
+    "metrics": [
+      {
+        "label": "Organizational Website",
+        "value": "Project Scope",
+        "description": "Developed as a centralized information hub and digital representation of the organization."
+      },
+      {
+        "label": "Developer + Administrator",
+        "value": "Role",
+        "description": "Covers website development together with administration and content maintenance."
+      },
+      {
+        "label": "Information Hub",
+        "value": "Primary Function",
+        "description": "Serves as a central platform for organizational information and activities."
+      }
+    ]
+  },
+  {
+    "slug": "vocaplay",
+    "title": "VocaPlay",
+    "category": "Game Development",
+    "categories": ["SOFTWARE", "CLIENT"],
+    "year": 2025,
+    "featured": false,
+    "description": "A voice-based educational game developed in Unity where players interact with visual vocabulary prompts, use live camera and voice input, and pronounce target words in their selected language to progress through a retro pixel environment.",
+    "role": "Game Developer",
+    "image": "/gallery-11-a.jpg",
+    "gallery": [
+      "/gallery-11-a.jpg",
+      "/gallery-11-b.jpg",
+      "/gallery-11-c.jpg"
+    ],
+    "technologies": [
+      "Unity",
+      "C#",
+      "Voice Recognition",
+      "Windows"
+    ],
+    "links": {
+      "github": "https://github.com/zoerlyx/unity-games/tree/main/vocaplay",
+      "demo": ""
+    },
+    "overview": "VocaPlay is a voice-based educational game that combines visual vocabulary prompts, live camera interaction, and speech recognition within a retro pixel environment. Players must identify the target vocabulary associated with each image and pronounce it correctly in their selected language to progress through the game.",
+    "context": "Language learning and pronunciation practice can benefit from interactive activities that connect visual information, spoken language, and immediate feedback. VocaPlay was developed within an educational psychology study to explore how an interactive game environment using voice and live camera interaction could support language acquisition, speech-related activities, and auditory memory retention.",
+    "problem": "Traditional vocabulary exercises can provide limited opportunities for interactive pronunciation practice and immediate feedback. The challenge was to create a game-based environment that combines visual vocabulary prompts, live camera interaction, spoken responses, and instant audio-visual feedback while supporting multiple languages.",
+    "process": "Development focused on creating the retro pixel game environment, implementing vocabulary-based progression mechanics, and integrating real-time voice recognition for pronunciation input. A live camera feed was incorporated alongside audio-visual response indicators to provide immediate feedback for correct and incorrect answers. Multilingual support was implemented for Arabic, English, Sundanese, and Javanese.",
+    "result": "The result is an interactive educational game that combines visual vocabulary recognition, live camera interaction, voice recognition, and immediate feedback within a gamified environment. VocaPlay provides a platform for exploring language acquisition, pronunciation practice, and auditory memory through interactive gameplay.",
+    "metrics": [
+      {
+        "label": "4 Languages",
+        "value": "Multilingual Support",
+        "description": "Supports Arabic, English, Sundanese, and Javanese vocabulary interaction."
+      },
+      {
+        "label": "Live Camera",
+        "value": "Visual Interaction",
+        "description": "Integrates a live camera feed as part of the interactive gameplay experience."
+      },
+      {
+        "label": "Voice Recognition",
+        "value": "Core Interaction",
+        "description": "Uses spoken player responses for vocabulary challenges and pronunciation evaluation."
+      }
+    ]
+  },
+  {
+    "slug": "shoot-the-pumpkin",
+    "title": "Shoot the Pumpkin",
+    "category": "Game Development",
+    "categories": ["SOFTWARE", "CLIENT"],
+    "year": 2025,
+    "featured": false,
+    "description": "A first-person shooting game developed in Unity where players navigate a 360-degree environment, shoot randomly spawning pumpkins within a fixed time limit, and avoid non-target objects that apply score penalties.",
+    "role": "Game Developer",
+    "image": "/gallery-12-a.jpg",
+    "gallery": [
+      "/gallery-12-a.jpg",
+      "/gallery-12-b.jpg",
+      "/gallery-12-c.jpg"
+    ],
+    "technologies": [
+      "Unity",
+      "C#",
+      "FPS"
+    ],
+    "links": {
+      "github": "https://github.com/zoerlyx/unity-games/tree/main/pumpkin-halloween",
+      "demo": ""
+    },
+    "overview": "Shoot the Pumpkin is a first-person shooting game designed around fast target recognition and precision-based gameplay. Players move through a 360-degree environment and must identify and shoot randomly spawning pumpkins before the time limit expires while avoiding non-target objects such as black rabbits and bats.",
+    "context": "Reaction-based gameplay can be used as an interactive environment for observing attention, response speed, and target recognition. The game was developed as a client project for psychological research, with gameplay mechanics designed around visual attention and cognitive focus.",
+    "problem": "The research required an interactive task capable of creating controlled situations where players had to continuously observe their surroundings, identify specific targets, and respond within a limited amount of time. The challenge was to translate these requirements into an engaging first-person gameplay experience while maintaining measurable scoring and penalty mechanics.",
+    "process": "Development began with the implementation of a 360-degree first-person environment and player camera controls. Target spawning mechanics were then introduced to generate pumpkins at random positions, followed by real-time scoring, time limits, and penalties for incorrect targets. Two difficulty modes were implemented with different map layouts and increasing gameplay challenges.",
+    "result": "The result is a first-person shooting game that provides a controlled environment for measuring visual attention, reaction time, and cognitive focus. Its timed scoring system, target penalties, and multiple difficulty modes create distinct gameplay conditions suitable for psychological research activities.",
+    "metrics": [
+      {
+        "label": "2 Difficulty Modes",
+        "value": "Gameplay Variation",
+        "description": "Includes easy and hard modes with distinct map layouts and increasing challenges."
+      },
+      {
+        "label": "360° FPS",
+        "value": "Core Gameplay",
+        "description": "Uses a first-person environment requiring continuous visual scanning and target tracking."
+      },
+      {
+        "label": "Timed Scoring",
+        "value": "Research Mechanic",
+        "description": "Combines time limits, target accuracy, and penalty mechanics to support attention and reaction-based evaluation."
+      }
+    ]
+  },
+  {
+    "slug": "bahara-app",
+    "title": "Bahara App",
+    "category": "Accessibility & Education",
+    "categories": ["UI/UX", "MOBILE"],
+    "year": 2026,
+    "featured": false,
+    "description": "An accessible Arabic learning application prototype designed for visually impaired users, featuring vocabulary learning, Hijaiyah letter pronunciation, and voice-oriented interaction.",
+    "role": "System Architect, Business Requirements & QA",
+    "image": "/gallery-13-a.jpg",
+    "gallery": [
+      "/gallery-13-a.jpg",
+      "/gallery-13-b.jpg",
+      "/gallery-13-c.jpg"
+    ],
+    "technologies": ["Figma"],
+    "links": {
+      "github": "https://github.com/zoerlyx/bahara-app",
+      "demo": ""
+    },
+    "overview": "Bahara App is a learning application prototype focused on Arabic language education for visually impaired users. The concept includes Arabic vocabulary learning and Hijaiyah letter pronunciation while prioritizing accessibility and voice-oriented interaction throughout the learning experience.",
+    "context": "Many language learning applications depend heavily on visual interfaces, which can create barriers for visually impaired users. Bahara was conceived as an accessibility-focused learning platform that places greater emphasis on voice interaction and accessible learning flows for Arabic language education.",
+    "problem": "Visually impaired learners can face difficulties when using conventional language learning applications that rely on visual navigation and content presentation. The challenge was to define a learning system that could support Arabic vocabulary and Hijaiyah pronunciation while prioritizing accessibility from the system and user-experience level.",
+    "process": "The project involved defining business requirements, translating learning and accessibility needs into system requirements, designing the system architecture and database structure, and ensuring that the proposed application flow aligned with the intended learning objectives. Quality assurance activities were also carried out to review requirements, system behavior, and overall implementation readiness.",
+    "result": "The result is an accessibility-focused Arabic learning application prototype with a defined system architecture, database design, business requirements, and quality assurance process. The prototype establishes a foundation for developing a more complete learning platform for visually impaired users.",
+    "metrics": [
+      {
+        "label": "Arabic Learning",
+        "value": "Core Purpose",
+        "description": "Focuses on Arabic vocabulary and Hijaiyah letter pronunciation."
+      },
+      {
+        "label": "Accessibility",
+        "value": "Primary Design Focus",
+        "description": "Designed with visually impaired users as the primary target audience."
+      },
+      {
+        "label": "System Architecture",
+        "value": "Core Contribution",
+        "description": "Covered system architecture, database design, business requirements, and quality assurance."
+      }
+    ]
+  },
+  {
+    "slug": "student-walker",
+    "title": "Student Walker",
+    "category": "Service Platform",
+    "categories": ["SOFTWARE", "MOBILE"],
+    "year": 2025,
+    "featured": false,
+    "description": "A student service marketplace designed to connect university students with on-demand campus assistance, including food delivery, item pickup, and everyday errands.",
+    "role": "Project Manager",
+    "image": "/gallery-14-a.jpg",
+    "gallery": [
+      "/gallery-14-a.jpg",
+      "/gallery-14-b.jpg",
+      "/gallery-14-c.jpg"
+    ],
+    "technologies": [
+      "Node.js",
+      "Express",
+      "WebSocket",
+      "Multer",
+      "MySQL",
+      "CORS",
+      "dotenv"
+    ],
+    "links": {
+      "github": "https://github.com/zoerlyx/student-walker-frontend",
+      "demo": ""
+    },
+    "overview": "Student Walker is a campus-oriented service marketplace that connects university students who need assistance with students who can provide on-demand services. The platform supports practical campus needs such as food delivery, item pickup, and everyday errands.",
+    "context": "University students often need assistance with everyday tasks while managing academic schedules and other commitments. At the same time, other students may have the availability to provide these services. Student Walker was designed as a service marketplace that connects both sides within a university environment.",
+    "problem": "Students lack a centralized platform for requesting and providing simple on-demand assistance around campus. The challenge was to coordinate the development of a service platform capable of handling service requests, real-time communication, file uploads, and database interactions within a student-oriented marketplace.",
+    "process": "As Project Manager, the work involved coordinating the project scope, requirements, development activities, and technical implementation. The backend was structured using Node.js and Express as a RESTful API, with WebSocket for real-time communication, Multer for file uploads, MySQL for database integration, and common Express middleware including CORS and dotenv for application configuration and request handling.",
+    "result": "The result is a student-focused service marketplace backend designed to support campus assistance services through RESTful APIs, real-time communication, file uploads, and persistent database integration. The project demonstrates coordination of both product requirements and technical development as a Project Manager.",
+    "metrics": [
+      {
+        "label": "Project Manager",
+        "value": "Primary Role",
+        "description": "Responsible for coordinating project requirements, development activities, and overall delivery."
+      },
+      {
+        "label": "RESTful API",
+        "value": "Backend Architecture",
+        "description": "Built using Node.js and Express to provide the core backend services."
+      },
+      {
+        "label": "WebSocket",
+        "value": "Real-Time Communication",
+        "description": "Supports real-time communication within the platform."
+      },
+      {
+        "label": "MySQL",
+        "value": "Database",
+        "description": "Provides persistent database integration for application data."
+      }
+    ]
+  },
+  {
+    "slug": "iot-motion-analyzer",
+    "title": "IoT Motion Analyzer",
+    "category": "IoT & Embedded Systems",
+    "categories": ["SOFTWARE"],
+    "year": 2026,
+    "featured": false,
+    "description": "An IoT-based physics experiment device designed to measure motion characteristics such as speed, acceleration, and friction using embedded sensors and real-time measurements.",
+    "role": "IoT Developer",
+    "image": "/gallery-15-a.jpg",
+    "gallery": [
+      "/gallery-15-a.jpg",
+      "/gallery-15-b.jpg",
+      "/gallery-15-c.jpg"
+    ],
+    "technologies": [
+      "Arduino",
+      "ESP32",
+      "Ultrasonic Sensor"
+    ],
+    "links": {
+      "github": "https://github.com/zoerlyx/physics-iot-inclined-plane",
+      "demo": ""
+    },
+    "overview": "IoT Motion Analyzer is an embedded IoT device developed for physics experiments involving motion analysis. The system uses sensors to capture real-time measurements that can be used to analyze physical characteristics such as speed, acceleration, and friction.",
+    "context": "Physics experiments involving motion often require repeated manual measurements, which can make data collection time-consuming and less consistent. IoT and embedded technologies provide an opportunity to automate measurement processes and capture physical motion in real time.",
+    "problem": "Manual measurement of motion variables can introduce limitations in measurement frequency, consistency, and observation. The challenge was to develop a compact embedded system capable of collecting motion-related measurements automatically during physics experiments.",
+    "process": "Development focused on combining an ESP32-based embedded platform with an ultrasonic sensor for motion measurement. The device was designed to capture physical movement and provide real-time measurements that could be used to analyze speed, acceleration, and friction during experimental activities.",
+    "result": "The result is an IoT-based physics experiment device that enables automated and real-time motion measurement using embedded hardware and sensors, providing a more practical approach to collecting data during physics experiments.",
+    "metrics": [
+      {
+        "label": "ESP32",
+        "value": "Embedded Platform",
+        "description": "Serves as the main embedded controller for the motion measurement system."
+      },
+      {
+        "label": "Ultrasonic Sensor",
+        "value": "Motion Measurement",
+        "description": "Used to capture distance-related measurements for analyzing physical motion."
+      },
+      {
+        "label": "Real-Time",
+        "value": "Measurement Method",
+        "description": "Captures motion-related measurements during physics experiments."
+      }
+    ]
+  }
+]
+
